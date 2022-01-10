@@ -26,7 +26,7 @@ describe('mycalculatordapp', () => {
   });
 
   it("Adds two numbers", async function() {
-    await program.rpc.add(new anchor.BN(2), new anchor.BN(4), {
+    await program.rpc.calculate("+",new anchor.BN(2), new anchor.BN(4), {
       accounts: {
         calculator: _calculator.publicKey,
       },
@@ -39,7 +39,7 @@ describe('mycalculatordapp', () => {
   });
 
   it('Multiplies two numbers', async function() {
-    await program.rpc.multiply(new anchor.BN(2), new anchor.BN(2), {
+    await program.rpc.calculate("*",new anchor.BN(2), new anchor.BN(2), {
       accounts: {
         calculator: _calculator.publicKey,
       }
@@ -52,7 +52,7 @@ describe('mycalculatordapp', () => {
   })
 
   it('Subtracts two numbers', async function() {
-    await program.rpc.subtract(new anchor.BN(6), new anchor.BN(5), {
+    await program.rpc.calculate("-",new anchor.BN(6), new anchor.BN(5), {
       accounts: {
         calculator: _calculator.publicKey,
       }
@@ -64,7 +64,7 @@ describe('mycalculatordapp', () => {
   });
 
   it('Divides two numbers', async function() {
-    await program.rpc.divide(new anchor.BN(7), new anchor.BN(2), {
+    await program.rpc.calculate("/",new anchor.BN(7), new anchor.BN(2), {
       accounts: {
         calculator: _calculator.publicKey,
       }
